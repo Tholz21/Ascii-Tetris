@@ -37,6 +37,9 @@ public:
 	static void rotatePiece();
 	static void updateGameBoard(bool collided);
 	static void checkAndClearFullLine();
+	static bool isGameOver();
+
+
 
 };
 

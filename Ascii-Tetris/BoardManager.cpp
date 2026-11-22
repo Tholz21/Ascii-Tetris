@@ -207,3 +207,12 @@ void BoardManager::checkAndClearFullLine() {
 		}
 	}
 }
+
+bool BoardManager::isGameOver() {
+	if (gameboard[pieceStartingCoords.Y][pieceStartingCoords.X] == staticPiece) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}

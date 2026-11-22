@@ -2,12 +2,12 @@
 #include <windows.h>
 class InputHandler {
 public:
-	void getInputs();
+	static void getInputs();
 
 private:
-	void dKeyPressed();
-	void sKeyPressed();
-	void aKeyPressed();
-	void spaceKeyPressed();
+	static void dKeyPressed();
+	static void sKeyPressed();
+	static void aKeyPressed();
+	static void spaceKeyPressed();
 
 };

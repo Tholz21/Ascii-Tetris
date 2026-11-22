@@ -1,5 +1,8 @@
 #include "GameManager.h"
 int main() {
-	GameManager::startScreen();
+	while (GameManager::startScreen()) {
+		GameManager::startGame();
+	}
+
 	return 1;
 }
