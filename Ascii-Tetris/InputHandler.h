@@ -1,3 +1,5 @@
+#ifndef INPUTHANDLER_H
+#define INPUTHANDLER_H
 
 #include <windows.h>
 class InputHandler {
@@ -11,3 +13,5 @@ private:
 	static void spaceKeyPressed();
 
 };
+
+#endif

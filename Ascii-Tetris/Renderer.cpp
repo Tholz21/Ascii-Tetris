@@ -5,6 +5,7 @@ using namespace std;
 
 void Renderer::renderGame() {
 	ConsoleUtils::resetCursorPosition(COORD{22,7});
+	ConsoleUtils::setCursorInvisible();
 	string boardString = "";
 	for (int row = 0; row < BoardManager::boardHeight; row++) {
 		for (int collumn = 0; collumn < BoardManager::boardHeight; collumn++) {
