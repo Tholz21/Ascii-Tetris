@@ -4,13 +4,12 @@
 using namespace std;
 
 void Renderer::renderGame() {
-	ConsoleUtils::resetCursorPosition(COORD{22,7});
+	ConsoleUtils::resetCursorPosition(COORD{45,7});
 	ConsoleUtils::setCursorInvisible();
 	string boardString = "";
 	for (int row = 0; row < BoardManager::boardHeight; row++) {
-		for (int collumn = 0; collumn < BoardManager::boardHeight; collumn++) {
+		for (int collumn = 0; collumn < BoardManager::boardWidth; collumn++) {
 			switch (BoardManager::gameboard[row][collumn]) {
-
 			case BoardManager::wall:
 				boardString = boardString + "#" + " ";
 				break;
@@ -27,7 +26,7 @@ void Renderer::renderGame() {
 				break;
 			}
 		}
-		boardString = boardString + "\n" + "                      ";
+		boardString = boardString + "\n" + "					     ";
 	}
 	cout << boardString;
 	cout << "        Score: " << GameManager::score;
@@ -53,11 +52,33 @@ R"(
 
 void Renderer::renderGameTitle(){
 	cout <<
-R"(  
-	     _             _ _   _____    _        _      
-	    / \   ___  ___(_|_) |_   _|__| |_ _ __(_)___  
-	   / _ \ / __|/ __| | |   | |/ _ \ __| !__| / __| 
-	  / ___ \\__ \ (__| | |   | |  __/ |_| |  | \__ \ 
-	 /_/   \_\___/\___|_|_|   |_|\___|\__|_|  |_|___/ )";
+R"(
+				     _             _ _   _____    _        _      
+				    / \   ___  ___(_|_) |_   _|__| |_ _ __(_)___  
+				   / _ \ / __|/ __| | |   | |/ _ \ __| !__| / __| 
+				  / ___ \\__ \ (__| | |   | |  __/ |_| |  | \__ \ 
+				 /_/   \_\___/\___|_|_|   |_|\___|\__|_|  |_|___/ 
+
+)";
+
+}
+
+void Renderer::renderEndScreen(int score)
+{
+	cout << R"(
+					$$$$$$$\  $$$$$$\ $$$$$$$$\ $$$$$$$\  
+					$$  __$$\ \_$$  _|$$  _____|$$  __$$\ 
+					$$ |  $$ |  $$ |  $$ |      $$ |  $$ |
+					$$ |  $$ |  $$ |  $$$$$\    $$ |  $$ |
+					$$ |  $$ |  $$ |  $$  __|   $$ |  $$ |
+					$$ |  $$ |  $$ |  $$ |      $$ |  $$ |
+					$$$$$$$  |$$$$$$\ $$$$$$$$\ $$$$$$$  |
+					\_______/ \______|\________|\_______/ 
+                                      
+
+)";
+
+	cout << "					    you ended with a score of " << score << endl;
+	cout << "				         Enter anything to go back to start: ";
 }
 

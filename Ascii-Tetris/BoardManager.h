@@ -38,8 +38,8 @@ public:
 	static void updateGameBoard(bool collided);
 	static void checkAndClearFullLine();
 	static bool isGameOver();
-
-
+	static bool createPiece();
+	static void clearBoard();
 
 };
 

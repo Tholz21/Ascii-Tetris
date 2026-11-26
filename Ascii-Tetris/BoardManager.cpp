@@ -85,7 +85,7 @@ COORD BoardManager::pieceStartingCoords = { 6, 2 };
 
 
 // Gameboard declaration (X and Y flipped)
-int BoardManager::gameboard[BoardManager::boardHeight][BoardManager::boardWidth]{};
+int BoardManager::gameboard[boardHeight][boardWidth]{};
 
 
 void BoardManager::instantiateBoard() {
@@ -144,7 +144,16 @@ bool BoardManager::movePieceIfValid(COORD direction) {
 }
 
 void BoardManager::rotatePiece(){
-
+	for (int y = 0; y < 5; y++) {
+		for (int x = 0; x < 5; x++) {
+			rotationContainer[x][4 - y] = currentPiece[y][x];
+		}
+	}
+	for (int y = 0; y < 5; y++) {
+		for (int x = 0; x < 5; x++) {
+			currentPiece[y][x] = rotationContainer[y][x];
+		}
+	}
 }
 
 void BoardManager::updateGameBoard(bool collided)
@@ -214,5 +223,26 @@ bool BoardManager::isGameOver() {
 	}
 	else {
 		return false;
+	}
+}
+
+bool BoardManager::createPiece() {
+	if (gameboard[pieceStartingCoords.Y][pieceStartingCoords.X] == 0) {
+		piecePosition = pieceStartingCoords;
+		randomizeCurrentPiece();
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+void BoardManager::clearBoard() {
+	
+	// Set the walls of the board to wall
+	for (int y = 0; y < boardHeight; y++) {
+		for (int x = 0; x < boardWidth; x++) {
+			gameboard[y][x] = empty;
+		}
 	}
 }

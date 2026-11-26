@@ -12,6 +12,6 @@ public:
 	static void renderGame();
 	static void renderStartScreen();
 	static void renderGameTitle();
-	//void renderEndScreen();
+	void renderEndScreen(int score);
 };
 #endif

@@ -2,6 +2,9 @@
 #define INPUTHANDLER_H
 
 #include <windows.h>
+#include <conio.h>
+#include "BoardManager.h"
+
 class InputHandler {
 public:
 	static void getInputs();

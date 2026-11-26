@@ -13,6 +13,7 @@ public:
 
 	static bool startScreen();
 	static int startGame();
+	static void endScreen(int score);
 };
 
 #endif
